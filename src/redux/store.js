@@ -20,7 +20,6 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-
 const store = configureStore({
   reducer: {    
     auth: persistReducer(authPersistConfig, authReducer),

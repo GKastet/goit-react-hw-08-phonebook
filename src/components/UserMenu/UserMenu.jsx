@@ -5,17 +5,19 @@ import { selectUserName } from 'redux/selectors';
 import { logOutThunk } from 'redux/Thunks/authThunk';
 
 export const UserMenu = () => {
-  const userName = useSelector(selectUserName)
+  const userName = useSelector(selectUserName);
   const dispatch = useDispatch();
 
-  const handleOnClick = () =>{
-    dispatch(logOutThunk())
-  }  
+  const handleOnClick = () => {
+    dispatch(logOutThunk());
+  };
 
   return (
-    <UserMenuStyled>        
-      <p>Hello, {userName}</p>      
-      <button type="submit" onClick={handleOnClick}>Logout</button>
+    <UserMenuStyled>
+      <p>Hello, {userName}</p>
+      <button type="submit" onClick={handleOnClick}>
+        Logout
+      </button>
     </UserMenuStyled>
   );
 };

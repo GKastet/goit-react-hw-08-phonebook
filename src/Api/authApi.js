@@ -1,10 +1,5 @@
 import { instance } from './api';
 
-//Contact
-// const enpointGet = '/contacts' //get contact
-// const enpointPost = '/contacts' //post contact
-// const enpointDelete = '/contacts/{contactId}' //delete contact
-
 const token ={
     set(token){
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -25,12 +20,10 @@ export const logInRequest = async (logInUserData) =>{
     return data
 }
 
-
 export const logOutRequest = async () =>{
     await instance.post('/users/logout');
     token.unset()    
 }
-
 
 export const currentUser = async (_, thunkAPI) =>{    
     const state = thunkAPI.getState();

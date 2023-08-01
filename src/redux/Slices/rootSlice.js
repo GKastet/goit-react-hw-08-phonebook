@@ -1,5 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
-//import { handlePending, handleRejected, handleFulfilled } from '../Root/handlers';
+import { createSlice } from '@reduxjs/toolkit';
 import { initialStateRoot } from 'redux/initialState';
 
 export function handlePending(state) {
@@ -9,11 +8,11 @@ export function handlePending(state) {
 
 export function handleRejected(state, { error }) {
   state.isLoading = false;
-  state.error = error.message;  
+  state.error = error.message;
 }
 
 export function handleFulfilled(state) {
-  state.isLoading = false;    
+  state.isLoading = false;
 }
 
 const rootSlice = createSlice({
@@ -24,8 +23,8 @@ const rootSlice = createSlice({
     builder
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)
       .addMatcher(action => action.type.endsWith('/rejected'), handleRejected)
-      .addMatcher(action => action.type.endsWith('/fulfilled'), handleFulfilled)
+      .addMatcher(action => action.type.endsWith('/fulfilled'), handleFulfilled);
   },
 });
 
-export const rootReducer = rootSlice.reducer
+export const rootReducer = rootSlice.reducer;

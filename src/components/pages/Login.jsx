@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormStyled } from './RegisterStyled';
+import { FormStyled, FormWrap } from './RegisterStyled';
 import { useDispatch } from 'react-redux';
 import { logInThunk } from 'redux/Thunks/authThunk';
 
@@ -19,8 +19,8 @@ export const Login = () => {
   };
 
   return (
-    <>
-      <div>Complete form, please</div>
+    <FormWrap>
+      <h3>Complete form, please</h3>
       <FormStyled onSubmit={handleOnSubmit}>
         <span>Email</span>
         <input type="email" name="email" required />
@@ -28,7 +28,7 @@ export const Login = () => {
         <input type="password" name="password" required />
         <button type="submit">Log In</button>
       </FormStyled>
-    </>
+    </FormWrap>
   );
 };
 

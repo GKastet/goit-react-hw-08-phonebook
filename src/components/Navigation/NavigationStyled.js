@@ -1,9 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-// export const DivStyled = styled.div`
-// display:flex;
-// `
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
   font-size: 20px;

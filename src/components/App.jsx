@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 import Loader from './Loader/Loader';
 import { Route, Routes } from 'react-router-dom';
 import { NavLayout } from './Navigation/NavLayout';
-//import { NavLayout } from './Navigation/Navigation';
 import { getCurrentThunk } from 'redux/Thunks/authThunk';
 import { PublicRoute } from 'Guards/PublicRoute';
 import { PrivateRoute } from 'Guards/PrivateRoute';
+import { Toaster } from 'react-hot-toast';
 
 const Home = lazy(() => import('./pages/Home'));
 const Register = lazy(() => import('./pages/Register'));
@@ -22,7 +22,8 @@ export default function App() {
   },[dispatch])
 
   return (   
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}> 
+       <Toaster position="top-right"/>       
         <Routes>
           <Route path="/" element={<NavLayout />}>
             <Route index element={<PublicRoute><Home /></PublicRoute>} />
@@ -30,7 +31,7 @@ export default function App() {
             <Route path="login" element={<PublicRoute><Login /></PublicRoute>} />
             <Route path="contacts" element={<PrivateRoute><ContactsPage /></PrivateRoute>} />
           </Route>
-        </Routes>
+        </Routes>       
       </Suspense>
     
   );  

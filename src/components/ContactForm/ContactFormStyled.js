@@ -27,4 +27,4 @@ export const ContactFormStyled = styled.form`
         background-color: yellow;
     }
   }
-`;
+`

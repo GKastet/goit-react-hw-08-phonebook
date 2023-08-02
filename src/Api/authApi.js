@@ -1,6 +1,6 @@
 import { instance } from './api';
 
-const token ={
+export const token ={
     set(token){
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     },
@@ -25,13 +25,7 @@ export const logOutRequest = async () =>{
     token.unset()    
 }
 
-export const currentUser = async (_, thunkAPI) =>{    
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-    
-    if(!persistedToken) return thunkAPI.rejectWithValue(); 
-
-    token.set(persistedToken);
+export const currentUser = async () =>{
     const {data} = await instance.get('/users/current');
     return data    
 }

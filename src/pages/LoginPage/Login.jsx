@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormStyled, FormWrap } from './RegisterStyled';
+import { FormStyled, FormWrap } from '../RegisterPage/RegisterStyled';
 import { useDispatch } from 'react-redux';
 import { logInThunk } from 'redux/Thunks/authThunk';
 
@@ -12,7 +12,7 @@ export const Login = () => {
     const children = evt.currentTarget.elements;
     const email = children.email.value;
     const password = children.password.value;
-    const logInUserData = { email: email, password: password };
+    const logInUserData = { email, password };
 
     dispatch(logInThunk(logInUserData));
     evt.currentTarget.reset();

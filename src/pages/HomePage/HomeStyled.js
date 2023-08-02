@@ -20,3 +20,4 @@ export const LinkStyled = styled(Link)`
   font-size: 20px;
   color: navy;
 `;
+

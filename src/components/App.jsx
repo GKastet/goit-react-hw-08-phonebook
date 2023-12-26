@@ -26,33 +26,25 @@ export default function App() {
       <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<NavLayout />}>
-          <Route
-            index
-            element={
+          <Route index element={
               <PublicRoute>
                 <Home />
               </PublicRoute>
             }
           />
-          <Route
-            path="register"
-            element={
+          <Route path="register" element={
               <PublicRoute>
                 <Register />
               </PublicRoute>
             }
           />
-          <Route
-            path="login"
-            element={
+          <Route path="login" element={
               <PublicRoute>
                 <Login />
               </PublicRoute>
             }
           />
-          <Route
-            path="contacts"
-            element={
+          <Route path="contacts" element={
               <PrivateRoute>
                 <ContactsPage />
               </PrivateRoute>
